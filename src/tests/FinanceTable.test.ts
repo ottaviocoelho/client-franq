@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import FinanceTable from '../components/FinanceTable.vue';
+import FinanceTable from '../components/FinanceTablebackup.vue';
 import { describe, it, expect } from 'vitest';
 
 describe('FinanceTable.vue', () => {

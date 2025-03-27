@@ -1,15 +1,18 @@
 <template>
   <div class="container">
     <h1>Finance Data</h1>
-    <FinanceTable title="Currencies" endpoint="/currencies" />
-    <FinanceTable title="Stocks" endpoint="/stocks" />
-    <FinanceTable title="Bitcoin" endpoint="/bitcoin" />
-    <FinanceTable title="Taxes" endpoint="/taxes" />
+    <Currencies />
+    <Stocks />
+    <Bitcoin />
+    <Taxes />
   </div>
 </template>
 
 <script setup lang="ts">
-import FinanceTable from './components/FinanceTable.vue';
+import Currencies from './components/Currencies.vue'
+import Stocks from './components/Stocks.vue'
+import Bitcoin from './components/Bitcoin.vue'
+import Taxes from './components/Taxes.vue'
 </script>
 
 <style>

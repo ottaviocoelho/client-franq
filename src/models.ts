@@ -1,3 +1,5 @@
+export type Maybe<T> = T | null
+
 export type CurrencyItem = {
   name: String
   buy: Number
@@ -27,7 +29,8 @@ export type BitcoinItem = {
   name: Number
   format: CurrencyFormat
   last: Number
-  sell: Number
+  buy?: Number
+  sell?: Number
   variation: Number
 }
 
