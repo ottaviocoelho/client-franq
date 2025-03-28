@@ -46,3 +46,8 @@ export type Taxes = {
   selic_daily: Number
   cdi_dail: Number
 }
+
+export type User = {
+  username: string
+  password: string
+}
