@@ -84,6 +84,7 @@ const data = computed(() => {
 <style scoped>
 
 .finance-item-container {
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
 }
@@ -91,6 +92,10 @@ const data = computed(() => {
 .finance-item-wrapper {
   max-width: 100%;
   max-height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .finance-item-wrapper canvas {

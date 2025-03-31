@@ -19,6 +19,7 @@ export const getFormattedBitcoin = (bitcoin: Bitcoin): {[key: string]: string | 
   return Object.values(bitcoin).map((item) => {
     const formattedItem = {
       name: item.name,
+      key: item.key ?? '',
       last: formatCurrency(item.last, item.format),
       variation: formatCurrency(item.variation, item.format),
       buy: "-",

@@ -7,7 +7,7 @@ import FinanceData from './views/financeData/FinanceData.vue'
 import FinanceItem from './views/financeData/FinanceItem.vue'
 
 const routes = [
-  { path: '/', component: Home,
+  { path: '/', redirect: '/finance-data', component: Home,
     children: [
       { path: '/finance-data', component: FinanceData},
       { path: '/:financeType/:key', component: FinanceItem}

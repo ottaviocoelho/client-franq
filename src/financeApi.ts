@@ -4,7 +4,9 @@ import type { Bitcoin, Currencies, Stocks, Taxes } from "./model/financeData"
 const BASE_URL =  import.meta.env.VITE_BASE_URL;
 
 const addKeyToObject = (obj: any) => {
+  console.log("key")
   Object.keys(obj).forEach(key => typeof obj[key] == 'object' ? obj[key].key = key : null)
+  console.log(obj)
   return obj
 }
 

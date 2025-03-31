@@ -32,6 +32,7 @@ export type BitcoinItem = {
   buy?: Number
   sell?: Number
   variation: Number
+  key?: string
 }
 
 export type Bitcoin = {

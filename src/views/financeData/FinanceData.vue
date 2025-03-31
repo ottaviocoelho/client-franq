@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
+  <div class="finance-data-container">
     <h1>Finance Data</h1>
-    <button @click="logOff">{{ LOG_OF }}</button>
     <Currencies />
     <Stocks />
     <Bitcoin />
@@ -14,17 +13,17 @@ import Currencies from '../../components/Currencies.vue'
 import Stocks from '../../components/Stocks.vue'
 import Bitcoin from '../../components/Bitcoin.vue'
 import Taxes from '../../components/Taxes.vue'
-import { LOG_OF } from "../../messages"
-import { logOff } from '../../userApi'
 
 </script>
 
-<style>
-.container {
+<style scoped>
+.finance-data-container {
+  height: 100%;
   max-width: 800px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;

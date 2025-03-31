@@ -1,7 +1,7 @@
 <template>
   <section>
     <h2>Currencies {{ currenciesData ? `(from ${currenciesData?.source})` : '' }}</h2>
-    <FinanceTable :headers="HEADERS" :data="currenciesItems" @item-click="itemClickHandler" prependHref="/currencies/"/>
+    <FinanceTable :headers="HEADERS" :data="currenciesItems" prependHref="/currencies/"/>
   </section>
 </template>
 
@@ -12,7 +12,6 @@ import type { Currencies } from '../model/financeData'
 import { getCurrencyItemsKeys } from '../maps'
 import type { CurrencyItem } from '../model/financeData'
 import type { RecurrentData } from '../hooks/recurrentData'
-import router from '../router'
 
 const HEADERS = ["name", "buy", "sell", "variation"]
 
@@ -28,9 +27,5 @@ const currenciesItems = computed<CurrencyItem[]>(() => {
     return []
   }
 })
-
-const itemClickHandler = (item: any) => {
-  router.push('/currencies/' + item.key)
-}
 
 </script>

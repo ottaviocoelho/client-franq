@@ -1,7 +1,7 @@
 <template>
   <section>
     <SignIn/>
-    <button @click="goToSignUp">{{ SIGN_UP }}</button>
+    <button @click="goToSignUp" class="outline sm">{{ SIGN_UP }}</button>
   </section>
 </template>
 

@@ -1,7 +1,8 @@
 <template>
-  <div class="container">
+  <main class="container">
+    <button class="logoff-button danger" @click="logOff">{{ LOG_OF }}</button>
     <router-view />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -9,6 +10,8 @@ import { provide } from 'vue'
 import { getBitcoin, getCurrencies, getStocks, getTaxes } from '../financeApi'
 import { useRecurrentData } from '../hooks/recurrentData'
 import type { Bitcoin, Currencies, Stocks, Taxes } from '../model/financeData'
+import { LOG_OF } from "../messages"
+import { logOff } from '../userApi'
 
 const currencies = useRecurrentData<Currencies>(getCurrencies)
 const bitcoin = useRecurrentData<Bitcoin>(getBitcoin)
@@ -24,10 +27,17 @@ provide('taxesData', taxes)
 
 <style>
 .container {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
+  position: relative;
 }
+
+.container > .logoff-button {
+  position: absolute;
+  right: 20px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
