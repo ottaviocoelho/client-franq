@@ -1,7 +1,7 @@
 <template>
   <section>
     <h2>Currencies {{ currenciesData ? `(from ${currenciesData?.source})` : '' }}</h2>
-    <FinanceTable :headers="HEADERS" :data="currenciesItems" @item-click="itemClickHandler"/>
+    <FinanceTable :headers="HEADERS" :data="currenciesItems" @item-click="itemClickHandler" prependHref="/currencies/"/>
   </section>
 </template>
 

@@ -37,7 +37,4 @@ th, td {
   border: 1px solid #ddd;
   padding: 8px;
 }
-th {
-  background-color: #f4f4f4;
-}
 </style>

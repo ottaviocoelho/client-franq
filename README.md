@@ -11,7 +11,7 @@ Requisitos funcionais
 [X] Para navegar na aplicação, o usuário deve estar autenticado, portanto, deve-se verificar se o tempo de sessão ainda está ativo, e quando for inativo, o usuário deve ser deslogado e levado novamente para a tela de login;
 [X] O usuário deve ser capaz de visualizar todas as cotações;
 [] Se avariação diária for positiva o valor deve ficar em verde, se negativa deve ficar em vermelho;
-[] O usuário deve ser capaz de selecionar um elemento e observar a evolução dos preços a partir da inicialização da aplicação em um gráfico;
+[X] O usuário deve ser capaz de selecionar um elemento e observar a evolução dos preços a partir da inicialização da aplicação em um gráfico;
 
 Requisitos projeto
 

@@ -6,15 +6,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, i) in data" :key="i" @click="$emit('item-click', item)">
-          <td v-for="(header) in headers" :key="header">{{ item[header] ?? '-' }}</td>
+        <tr v-for="(item, i) in data" :key="i">
+          <FinanceTableCell v-for="(header) in headers" :header="header" :key="item.key" :data="item[header]" :link="`${prependHref ?? ''}${item.key}`"/>
         </tr>
       </tbody>
   </table>
 </template>
 
 <script setup lang="ts">
-  defineProps<{headers: string[]; data: {[key: string]: any}[]}>()
+import FinanceTableCell from './FinanceTableCell.vue'
+
+defineProps<{ prependHref?: string; headers: string[]; data: {[key: string]: any;}[]}>()
 </script>
 
 <style scoped>
