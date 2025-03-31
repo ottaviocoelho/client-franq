@@ -48,7 +48,7 @@ const options = {
 }
 
 type Labels = string[]
-type DataSets = {[key]: number[]}
+type DataSets = {[key: string]: number[]}
 
 const colors = ["red", "blue", "purple", "green", "yellow", "pink"]
 

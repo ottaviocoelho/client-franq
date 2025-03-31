@@ -2,7 +2,7 @@
   <table v-if="data.length">
     <thead>
         <tr>
-          <th v-for="(header) in headers" :key="header">{{ header }}</th>
+          <th v-for="(header) in headers" :key="header">{{ header.replace("_", " ") }}</th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +22,8 @@ defineProps<{ prependHref?: string; headers: string[]; data: {[key: string]: any
 <style scoped>
 
 th {
-  color: black
+  color: black;
+  text-transform: capitalize
 }
 
 </style>

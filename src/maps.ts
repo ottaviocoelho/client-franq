@@ -21,7 +21,8 @@ export const getFormattedBitcoin = (bitcoin: Bitcoin): {[key: string]: string | 
       name: item.name,
       key: item.key ?? '',
       last: formatCurrency(item.last, item.format),
-      variation: formatCurrency(item.variation, item.format),
+      // variation: formatCurrency(item.variation, item.format),
+      variation: item.variation,
       buy: "-",
       sell: "-"
     };

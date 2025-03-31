@@ -21,7 +21,6 @@ import Taxes from '../../components/Taxes.vue'
   height: 100%;
   max-width: 800px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
 }
 
 table {

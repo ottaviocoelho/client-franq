@@ -1,7 +1,8 @@
 @import url('./assets/styles/button.css');
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: "DM Sans", sans-serif;
   color: black;
 
   font-synthesis: none;

@@ -29,7 +29,6 @@ provide('taxesData', taxes)
 .container {
   width: 100%;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
   position: relative;
 }
 

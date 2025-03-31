@@ -10,12 +10,12 @@ Requisitos funcionais
 [X] Deve haver uma tela inicial de login, e caso o usuário não possua cadastro, deve realizar o cadastro e persistir o usuário em local storage;
 [X] Para navegar na aplicação, o usuário deve estar autenticado, portanto, deve-se verificar se o tempo de sessão ainda está ativo, e quando for inativo, o usuário deve ser deslogado e levado novamente para a tela de login;
 [X] O usuário deve ser capaz de visualizar todas as cotações;
-[] Se avariação diária for positiva o valor deve ficar em verde, se negativa deve ficar em vermelho;
+[X] Se avariação diária for positiva o valor deve ficar em verde, se negativa deve ficar em vermelho;
 [X] O usuário deve ser capaz de selecionar um elemento e observar a evolução dos preços a partir da inicialização da aplicação em um gráfico;
 
 Requisitos projeto
 
-[] Deve ser responsivo;
+[X] Deve ser responsivo;
 [X] Utilizar biblioteca ou framework front end. Aqui utilizamos Vue.js, mas não se prenda a isso. Utilize a que conhece melhor, React, Angular, etc… tanto faz;
 [] A aplicação deve ser hospedada em um serviço da nuvem (heroku, aws, azure ou qualquer outra infraestrutura);
 [] Junto com o link do código (github, bitbucket, etc.) deve ser enviada uma url do projeto rodando (heroku, aws, azure ou qualquer outra infraestrutura).
