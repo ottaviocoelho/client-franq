@@ -1,29 +1,26 @@
 <template>
   <section>
     <h2>Bitcoin</h2>
-    <FinanceTable :headers="HEADERS" :data="bitcoinItems"/>
+    <FinanceTable :headers="HEADERS" :data="bitcoinItems" @item-click="itemClickHandler"/>/>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { computed, inject } from 'vue'
 import FinanceTable from '../components/FinanceTable.vue';
-import { getBitcoin } from '../financeApi'
 import { getFormattedBitcoin } from '../maps'
-import type { Bitcoin, Maybe } from '../models'
+import type { Bitcoin } from '../model/financeData'
+import router from '../router'
+import type { RecurrentData } from '../hooks/recurrentData'
 
 const HEADERS = ["name", "last", "buy", "sell", "variation"]
-const bitcoinData = ref<Maybe<Bitcoin>>();
+
+const bitcoinRecurrentData = inject<RecurrentData<Bitcoin>>('bitcoinData')
+const bitcoinData = computed(() => bitcoinRecurrentData?.currentData.value);
 const bitcoinItems = computed(() => bitcoinData.value ? getFormattedBitcoin(bitcoinData.value) : [])
 
-const updateData = async () => {
-  const bitcoin = await getBitcoin()
-  bitcoinData.value = bitcoin
+const itemClickHandler = (item: any) => {
+  router.push('/stocks/' + item.key)
 }
-
-onMounted(async () => {
-  updateData()
-  setInterval(updateData, 30000);
-})
 
 </script>

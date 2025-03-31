@@ -3,9 +3,16 @@ import Home from './views/Home.vue';
 import SignIn from './views/SignIn.vue';
 import SignUp from './views/SignUp.vue';
 import { isLogged } from './userApi'
+import FinanceData from './views/financeData/FinanceData.vue'
+import FinanceItem from './views/financeData/FinanceItem.vue'
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Home,
+    children: [
+      { path: '/finance-data', component: FinanceData},
+      { path: '/:financeType/:key', component: FinanceItem}
+    ]
+  },
   { path: '/sign-in', component: SignIn },
   { path: '/sign-up', component: SignUp }
 ];

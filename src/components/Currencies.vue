@@ -1,21 +1,23 @@
 <template>
   <section>
     <h2>Currencies {{ currenciesData ? `(from ${currenciesData?.source})` : '' }}</h2>
-    <FinanceTable :headers="HEADERS" :data="currenciesItems"/>
+    <FinanceTable :headers="HEADERS" :data="currenciesItems" @item-click="itemClickHandler"/>
   </section>
 </template>
 
 <script setup lang="ts">
 import FinanceTable from '../components/FinanceTable.vue';
-import { computed, onMounted, ref } from 'vue'
-import type { Currencies, Maybe } from '../models'
+import { computed, inject } from 'vue'
+import type { Currencies } from '../model/financeData'
 import { getCurrencyItemsKeys } from '../maps'
-import type { CurrencyItem } from '../models'
-import { getCurrencies } from '../financeApi'
+import type { CurrencyItem } from '../model/financeData'
+import type { RecurrentData } from '../hooks/recurrentData'
+import router from '../router'
 
 const HEADERS = ["name", "buy", "sell", "variation"]
 
-const currenciesData = ref<Maybe<Currencies>>();
+const currenciesRecurrentData = inject<RecurrentData<Currencies>>('currenciesData')
+const currenciesData = computed(() => currenciesRecurrentData?.currentData.value);
 
 const currenciesItemsKeys = computed<string[]>(() => currenciesData.value ? getCurrencyItemsKeys(currenciesData.value) : [])
 
@@ -27,15 +29,8 @@ const currenciesItems = computed<CurrencyItem[]>(() => {
   }
 })
 
-const updateData = async () => {
-  const currencies = await getCurrencies()
-  currenciesData.value = currencies
+const itemClickHandler = (item: any) => {
+  router.push('/currencies/' + item.key)
 }
-
-onMounted(async () => {
-  updateData()
-  setInterval(updateData, 30000);
-})
-
 
 </script>

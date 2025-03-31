@@ -1,5 +1,5 @@
 import { USER_ALREADY_EXISTS, USER_NOT_FOUND, WRONG_PASSWORD } from "./messages"
-import type { User } from "./models"
+import type { User } from "./model/financeData"
 import router from "./router"
 
 const STORAGE_KEY = "USERS";

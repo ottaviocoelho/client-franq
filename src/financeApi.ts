@@ -1,12 +1,17 @@
 import axios from "axios"
-import type { Bitcoin, Currencies, Stocks, Taxes } from "./models"
+import type { Bitcoin, Currencies, Stocks, Taxes } from "./model/financeData"
 
 const BASE_URL =  import.meta.env.VITE_BASE_URL;
+
+const addKeyToObject = (obj: any) => {
+  Object.keys(obj).forEach(key => typeof obj[key] == 'object' ? obj[key].key = key : null)
+  return obj
+}
 
 export const getCurrencies = async (): Promise<Currencies | undefined> => {
   try {
     const response = await axios.get(BASE_URL + "/currencies");
-    return response.data
+    return addKeyToObject(response.data)
   } catch (error) {
     console.error('Error fetching currencies: ', error);
   }
@@ -15,7 +20,7 @@ export const getCurrencies = async (): Promise<Currencies | undefined> => {
 export const getStocks = async (): Promise<Stocks | undefined> => {
   try {
     const response = await axios.get(BASE_URL + "/stocks");
-    return response.data
+    return addKeyToObject(response.data)
   } catch (error) {
     console.error('Error fetching currencies: ', error);
   }
@@ -24,7 +29,7 @@ export const getStocks = async (): Promise<Stocks | undefined> => {
 export const getBitcoin = async (): Promise<Bitcoin | undefined> => {
   try {
     const response = await axios.get(BASE_URL + "/bitcoin");
-    return response.data
+    return addKeyToObject(response.data)
   } catch (error) {
     console.error('Error fetching currencies: ', error);
   }

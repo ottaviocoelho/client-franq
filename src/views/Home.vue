@@ -1,21 +1,25 @@
 <template>
   <div class="container">
-    <h1>Finance Data</h1>
-    <button @click="logOff">{{ LOG_OF }}</button>
-    <Currencies />
-    <Stocks />
-    <Bitcoin />
-    <Taxes />
+    <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
-import Currencies from '../components/Currencies.vue'
-import Stocks from '../components/Stocks.vue'
-import Bitcoin from '../components/Bitcoin.vue'
-import Taxes from '../components/Taxes.vue'
-import { LOG_OF } from "../messages"
-import { logOff } from '../userApi'
+import { provide } from 'vue'
+import { getBitcoin, getCurrencies, getStocks, getTaxes } from '../financeApi'
+import { useRecurrentData } from '../hooks/recurrentData'
+import type { Bitcoin, Currencies, Stocks, Taxes } from '../model/financeData'
+
+const currencies = useRecurrentData<Currencies>(getCurrencies)
+const bitcoin = useRecurrentData<Bitcoin>(getBitcoin)
+const stocks = useRecurrentData<Stocks>(getStocks)
+const taxes = useRecurrentData<Taxes>(getTaxes)
+
+provide('currenciesData', currencies)
+provide('bitcoinData', bitcoin)
+provide('stocksData', stocks)
+provide('taxesData', taxes)
+
 </script>
 
 <style>

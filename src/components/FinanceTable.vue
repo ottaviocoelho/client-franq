@@ -6,7 +6,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, i) in data" :key="i">
+        <tr v-for="(item, i) in data" :key="i" @click="$emit('item-click', item)">
           <td v-for="(header) in headers" :key="header">{{ item[header] ?? '-' }}</td>
         </tr>
       </tbody>
@@ -16,3 +16,11 @@
 <script setup lang="ts">
   defineProps<{headers: string[]; data: {[key: string]: any}[]}>()
 </script>
+
+<style scoped>
+
+th {
+  color: black
+}
+
+</style>

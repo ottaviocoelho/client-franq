@@ -36,7 +36,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import type { User } from "../models"
+import type { User } from "../model/financeData"
 import { signIn } from "../userApi"
 import { PASSWORD, SIGN_IN_CTA, UNDEFINED_ERROR, USERNAME } from "../messages"
 

@@ -1,28 +1,27 @@
 <template>
   <section>
     <h2>Stocks</h2>
-    <FinanceTable :headers="HEADERS" :data="stocksItems"/>
+    <FinanceTable :headers="HEADERS" :data="stocksItems" @item-click="itemClickHandler" />
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { computed, inject } from 'vue'
 import FinanceTable from '../components/FinanceTable.vue';
-import { getStocks } from '../financeApi'
-import type { Maybe, Stocks } from '../models'
+import type {  Stocks } from '../model/financeData'
+import type { RecurrentData } from '../hooks/recurrentData'
+import router from '../router'
 
 const HEADERS = ["name", "location", "points", "variation"]
-const stocksData = ref<Maybe<Stocks>>();
+
+const stocksRecurrentData = inject<RecurrentData<Stocks>>('stocksData')
+
+const stocksData = computed(() => stocksRecurrentData?.currentData.value)
 const stocksItems = computed(() => stocksData.value ? Object.values(stocksData.value) : [])
 
-const updateData = async () => {
-  const stocks = await getStocks()
-  stocksData.value = stocks
-}
 
-onMounted(async () => {
-  updateData()
-  setInterval(updateData, 30000);
-})
+const itemClickHandler = (item: any) => {
+  router.push('/stocks/' + item.key)
+}
 
 </script>

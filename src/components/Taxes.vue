@@ -9,7 +9,7 @@
 import { ref, onMounted } from 'vue'
 import FinanceTable from '../components/FinanceTable.vue';
 import { getTaxes } from '../financeApi'
-import type { Maybe, Taxes } from '../models'
+import type { Maybe, Taxes } from '../model/financeData'
 
 const HEADERS = ["date", "cdi", "selic", "daily_factor", "selic_daily", "cdi_dail"]
 const taxesData = ref<Maybe<Taxes[]>>();

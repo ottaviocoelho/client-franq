@@ -1,4 +1,4 @@
-import type { Bitcoin, Currencies, CurrencyFormat } from "./models"
+import type { Bitcoin, Currencies, CurrencyFormat } from "./model/financeData"
 
 
 export const getCurrencyItemsKeys = (currency: Currencies): string[] => {
