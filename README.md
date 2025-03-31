@@ -27,6 +27,27 @@ Along with the source code link (GitHub, Bitbucket, etc.), a URL of the live pro
 
 The project was designed to reach an MVP without overengineering. The work was divided into sessions ranging from half an hour to four hours over four to five days. The project was started with a [service](https://github.com/ottaviocoelho/server-franq) to bridge the connection to the provided API.
 
+### How to run
+
+#### Requisitos
+
+- In the `.env` file, add the variable `VITE_BASE_URL` pointing to your [service](https://github.com/ottaviocoelho/server-franq).
+- Have Node installed
+
+#### Steps
+
+##### Dev
+
+`npm install`
+`npm run dev`
+
+##### Prod
+
+`npm build`
+`npm run start`
+
+### FAQ
+
 ##### Why wasn’t the visual identity implemented according to the target company?
 
 A banner image was provided for potential use in the project. Since it wasn’t listed in the requirements, I chose not to implement it for prioritization reasons. However, I am interested in adopting the company’s visual identity in this project for aesthetic purposes.

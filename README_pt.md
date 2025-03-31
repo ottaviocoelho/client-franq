@@ -27,6 +27,27 @@ Junto com o link do código (github, bitbucket, etc.) deve ser enviada uma url d
 
 O projeto foi pautado em chegar em um MVP sem overengineering. O trabalho foi dividido em sessões que variaram de meia hora a 4 horas, ao longo de 4-5 dias. O projeto foi iniciado com um [serviço](https://github.com/ottaviocoelho/server-franq) para fazer a ponte à API indicada.
 
+### Como rodar
+
+#### Requisitos
+
+- No arquivo `.env` adicionar a variavel `VITE_BASE_URL` apontando para o seu [serviço](https://github.com/ottaviocoelho/server-franq)
+- Ter node instalado
+
+#### Passos
+
+##### Dev
+
+`npm install`
+`npm run dev`
+
+##### Prod
+
+`npm build`
+`npm run start`
+
+### FAQ
+
 ##### Por que não foi feita a identidade visual tal qual a empresa alvo do teste?
 
 Foi fornecido uma imagem de banner para suposta utilização no projeto. Como não estava nos requisitos eu decidi não implementar por questão de priorização. Apesar disso tenho vontade sim de adotar a identidade visual aqui no projeto por questão estética.
